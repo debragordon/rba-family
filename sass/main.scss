@@ -7,7 +7,7 @@
 }
 
 body {
-  background: $backgroundPurple;
+  background: $darkBlue;
   color: $standardWhite;
 }
 
@@ -17,4 +17,20 @@ body {
 
 .topSpace {
   margin-top: 10px;
+}
+
+.sub {
+  background: $standardWhite;
+  border-radius: 10px;
+  color: $darkBlue;
+}
+
+.padThis {
+  padding: 10px;
+}
+
+.line {
+  background: $darkBlue;
+  border-radius: 15px;
+  color: $standardWhite;
 }
