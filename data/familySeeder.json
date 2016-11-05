@@ -1,0 +1,64 @@
+{
+  "family": [
+    {
+      "firstName": "Debra",
+      "lastName": "Gordon",
+      "age": 38,
+      "gender": "female",
+      "interests": [
+        "singing",
+        "graphic design",
+        "piano",
+        "coding"
+      ]
+    },
+    {
+      "firstName": "Tara",
+      "lastName": "Gordon",
+      "age": 28,
+      "gender": "female",
+      "interests": [
+        "reading",
+        "befriending people",
+        "dancing",
+        "mothering"
+      ]
+    },
+    {
+      "firstName": "Silas",
+      "lastName": "Gordon",
+      "age": 1,
+      "gender": "male",
+      "interests": [
+        "crawling",
+        "pulling up",
+        "smiling",
+        "babbling"
+      ]
+    },
+    {
+      "firstName": "Doris",
+      "lastName": "Gordon",
+      "age": 79,
+      "gender": "female",
+      "interests": [
+        "sewing",
+        "quilting",
+        "reading",
+        "painting"
+      ]
+    },
+    {
+      "firstName": "Inge",
+      "lastName": "Lawyer",
+      "age": 34,
+      "gender": "female",
+      "interests": [
+        "crafting",
+        "interior design",
+        "telling jokes",
+        "mothering"
+      ]
+    }
+  ]
+}
