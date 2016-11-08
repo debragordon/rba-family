@@ -25,7 +25,7 @@ function addFamilyMemberToList (){
     items.forEach(function(item){
       let newFamilyMember = `<div data-fbid='${item.id}'>`;
       newFamilyMember += "<div class='col-sm-6'>";
-      newFamilyMember += `<h3 class='line'>${item.firstName} ${item.lastName}</h3>`;
+      newFamilyMember += `<h3 class='line padThis'>${item.firstName} ${item.lastName}</h3>`;
       // newFamilyMember += "<h1 class='line'></h1>";
       newFamilyMember += `<h5>${item.gender}</h5>`;
       newFamilyMember += `<h5>${item.age}</h5>`;
@@ -45,6 +45,7 @@ function addFamilyMemberToList (){
 
 $(document).ready(function(){
 
+// writes family member database to the DOM
   FbAPI.firebaseCredentials().then(function(keys){
     console.log("keys", keys);
     apiKeys = keys;
@@ -52,17 +53,31 @@ $(document).ready(function(){
     addFamilyMemberToList();
   });
 
-//   $('#add-todo-button').on('click', function(){
-//     console.log("clicked new todo button");
-//     let newItem = {
-//       "task": $('#add-todo-text').val(),
-//       "isCompleted" : false
-//     };
-//     FbAPI.addTodo(apiKeys, newItem).then(function(){
-//       addFamilyMemberToList();
-//     });
-//   });
+// adds family member to the database
+  $('#family-member-submit').on('click', function(){
+    console.log("clicked add family member button");
+    let interestArray = $('#interests-text-area').val().split(',');
+    console.log("interest array", interestArray);
+    let newFamilyMember = {
+      "firstName": $('#first-name-input').val(),
+      "lastName": $('#last-name-input').val(),
+      "age": $('#age-input').val(),
+      "gender": $('#family-member-gender').val(),
+      "interests": interestArray
+    };
+    // newFamilyMember.interests = interestArray;
+    console.log("newFamilyMember Object", newFamilyMember);
+    FbAPI.addFamilyMember(apiKeys, newFamilyMember).then(function(){
+      addFamilyMemberToList();
+    });
+    $('#interests-text-area').val("");
+    $('#first-name-input').val("");
+    $('#last-name-input').val("");
+    $('#age-input').val("");
+    $('#family-member-gender').val("");
+  });
 
+// deletes family member from the DB and rewrites the new db to the DOM
   $('#family-list').on("click", ".delete", function(){
     let itemId = $(this).data("fbid");
     FbAPI.deleteFamilyMember(apiKeys, itemId).then(function(){
@@ -71,7 +86,4 @@ $(document).ready(function(){
   });
 
 });
-
-//how to write family member to the DOM
-/////
 

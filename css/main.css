@@ -46,6 +46,13 @@ body {
   background: #07437F;
   color: white; }
 
+option,
+select {
+  color: #07437F; }
+
+.dkBlue {
+  color: #07437F; }
+
 .centerThis {
   text-align: center; }
 
