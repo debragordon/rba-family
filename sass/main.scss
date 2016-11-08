@@ -11,6 +11,15 @@ body {
   color: $standardWhite;
 }
 
+option,
+select {
+  color: $darkBlue;
+}
+
+.dkBlue {
+  color: $darkBlue;
+}
+
 .centerThis {
   text-align: center;
 }
