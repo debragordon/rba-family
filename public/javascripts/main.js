@@ -1,10 +1,12 @@
 "use strict";
 
+console.log("testing ... this is now connected");
 
 let apiKeys = {};
 
 function addFamilyMemberToList (){
   FbAPI.getOldFamily(apiKeys).then(function(items){
+    console.log("items from FB", items);
     let $familyDiv = $('#family-list');
     $familyDiv.html("");
     items.forEach(function(item){
@@ -20,6 +22,8 @@ function addFamilyMemberToList (){
       }
       newFamilyMember += `<button type='submit' class='btn btn-danger delete' id='family-member-delete' data-fbid='${item.id}'>Delete</button>`;
       newFamilyMember += "</div>";
+      // newFamilyMember += "<div class='col-sm-6'>";
+      // newFamilyMember += "</div>";
       newFamilyMember += "</div>";
       $familyDiv.append(newFamilyMember);
     });
@@ -30,6 +34,7 @@ $(document).ready(function(){
 
 // writes family member database to the DOM
   FbAPI.firebaseCredentials().then(function(keys){
+    console.log("keys", keys);
     apiKeys = keys;
     firebase.initializeApp(keys);
     addFamilyMemberToList();
@@ -37,7 +42,9 @@ $(document).ready(function(){
 
 // adds family member to the database
   $('#family-member-submit').on('click', function(){
+    console.log("clicked add family member button");
     let interestArray = $('#interests-text-area').val().split(',');
+    console.log("interest array", interestArray);
     let newFamilyMember = {
       "firstName": $('#first-name-input').val(),
       "lastName": $('#last-name-input').val(),
@@ -45,6 +52,7 @@ $(document).ready(function(){
       "gender": $('#family-member-gender').val(),
       "interests": interestArray
     };
+    console.log("newFamilyMember Object", newFamilyMember);
     FbAPI.addFamilyMember(apiKeys, newFamilyMember).then(function(){
       addFamilyMemberToList();
     });

@@ -28,6 +28,7 @@ var FbAPI = (function(oldFirebase){
         data: JSON.stringify(newItem),
         dataType: 'json'
       }).then((response) => {
+        console.log("response from POST", response);
         resolve(response);
       }, (error) => {
         reject(error);
@@ -41,6 +42,7 @@ oldFirebase.deleteFamilyMember = function(apiKeys, itemId){
         method: 'DELETE',
         url:`${apiKeys.databaseURL}/family/${itemId}.json`
       }).then((response) => {
+        console.log("response from Delete", response);
         resolve(response);
       }, (error) => {
         reject(error);
